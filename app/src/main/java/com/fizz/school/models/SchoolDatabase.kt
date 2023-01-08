@@ -1,10 +1,13 @@
-package com.fizz.school
+package com.fizz.school.models
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.fizz.school.models.*
+import com.fizz.school.models.entities.Director
+import com.fizz.school.models.entities.School
+import com.fizz.school.models.entities.Student
+import com.fizz.school.models.entities.Subject
 
 @Database(
     entities = [
@@ -29,7 +32,7 @@ abstract class SchoolDatabase : RoomDatabase() {
                     context.applicationContext,
                     SchoolDatabase::class.java,
                     "school_db"
-                ).build().also { INSTANCE= it }
+                ).build().also { INSTANCE = it }
             }
         }
     }

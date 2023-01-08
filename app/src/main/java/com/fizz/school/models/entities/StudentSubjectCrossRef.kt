@@ -1,4 +1,4 @@
-package com.fizz.school.models
+package com.fizz.school.models.entities
 
 import androidx.room.Entity
 
