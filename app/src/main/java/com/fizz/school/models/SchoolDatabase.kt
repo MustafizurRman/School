@@ -16,17 +16,20 @@ import com.fizz.school.models.entities.Subject
         Subject::class,
         Director::class
     ],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class SchoolDatabase : RoomDatabase() {
 
-    abstract val schoolDao: SchoolDao
+    abstract fun schoolDao():SchoolDao
 
     companion object {
         @Volatile
         private var INSTANCE: SchoolDatabase? = null
 
-        fun getInstance(context: Context): SchoolDatabase {
+        fun getDatabase(context: Context): SchoolDatabase {
+            val tempInstance= INSTANCE
+            if(tempInstance!=null)return tempInstance
             synchronized(this) {
                 return INSTANCE ?: Room.databaseBuilder(
                     context.applicationContext,

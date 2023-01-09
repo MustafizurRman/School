@@ -10,6 +10,7 @@ class SchoolRepository(private val schoolDao: SchoolDao) {
     val readAllSchool: LiveData<List<School>> = schoolDao.readAllSchool()
     val readAllDirector: LiveData<List<Director>> = schoolDao.readAllDirector()
     val readAllStudent: LiveData<List<Student>> = schoolDao.readAllStudent()
+    val readAllSubject:LiveData<List<Subject>> = schoolDao.readAllSubject()
 
     suspend fun addSchool(school: School) {
         schoolDao.insertSchool(school)
