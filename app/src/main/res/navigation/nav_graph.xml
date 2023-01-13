@@ -1,6 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/studentInfoFragment">
 
+    <fragment
+        android:id="@+id/studentInfoFragment"
+        android:name="com.fizz.school.fragments.StudentInfoFragment"
+        android:label="fragment_student_info"
+        tools:layout="@layout/fragment_student_info" >
+        <action
+            android:id="@+id/action_studentInfoFragment_to_addStudentFragment"
+            app:destination="@id/addStudentFragment" />
+        <action
+            android:id="@+id/action_studentInfoFragment_to_studentDetailsFragment"
+            app:destination="@id/studentDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addStudentFragment"
+        android:name="com.fizz.school.fragments.AddStudentFragment"
+        android:label="fragment_add_student"
+        tools:layout="@layout/fragment_add_student" >
+        <action
+            android:id="@+id/action_addStudentFragment_to_studentInfoFragment"
+            app:destination="@id/studentInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateStudentFragment"
+        android:name="com.fizz.school.fragments.UpdateStudentFragment"
+        android:label="fragment_update_student"
+        tools:layout="@layout/fragment_update_student" >
+        <action
+            android:id="@+id/action_updateStudentFragment_to_studentDetailsFragment"
+            app:destination="@id/studentDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentDetailsFragment"
+        android:name="com.fizz.school.fragments.StudentDetailsFragment"
+        android:label="fragment_student_details"
+        tools:layout="@layout/fragment_student_details" >
+        <action
+            android:id="@+id/action_studentDetailsFragment_to_studentInfoFragment"
+            app:destination="@id/studentInfoFragment" />
+        <action
+            android:id="@+id/action_studentDetailsFragment_to_updateStudentFragment"
+            app:destination="@id/updateStudentFragment" />
+        <action
+            android:id="@+id/action_studentDetailsFragment_to_subjectDetailsFragment"
+            app:destination="@id/subjectDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subjectListFragment"
+        android:name="com.fizz.school.fragments.SubjectListFragment"
+        android:label="fragment_subject_list"
+        tools:layout="@layout/fragment_subject_list" >
+        <action
+            android:id="@+id/action_subjectListFragment_to_addSubjectFragment"
+            app:destination="@id/addSubjectFragment" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_subjectDetailsFragment2"
+            app:destination="@id/subjectDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addSubjectFragment"
+        android:name="com.fizz.school.fragments.AddSubjectFragment"
+        android:label="fragment_add_subject"
+        tools:layout="@layout/fragment_add_subject" >
+        <action
+            android:id="@+id/action_addSubjectFragment_to_subjectListFragment"
+            app:destination="@id/subjectListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateSubjectFragment"
+        android:name="com.fizz.school.fragments.UpdateSubjectFragment"
+        android:label="fragment_update_subject"
+        tools:layout="@layout/fragment_update_subject" >
+        <action
+            android:id="@+id/action_updateSubjectFragment_to_subjectDetailsFragment"
+            app:destination="@id/subjectDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subjectDetailsFragment"
+        android:name="com.fizz.school.fragments.SubjectDetailsFragment"
+        android:label="fragment_subject_details"
+        tools:layout="@layout/fragment_subject_details" >
+        <action
+            android:id="@+id/action_subjectDetailsFragment_to_updateSubjectFragment"
+            app:destination="@id/updateSubjectFragment" />
+        <action
+            android:id="@+id/action_subjectDetailsFragment_to_subjectListFragment"
+            app:destination="@id/subjectListFragment" />
+    </fragment>
 </navigation>
