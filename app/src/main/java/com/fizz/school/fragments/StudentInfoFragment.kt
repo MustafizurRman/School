@@ -20,7 +20,7 @@ class StudentInfoFragment : Fragment() {
 
     private var _binding: FragmentStudentInfoBinding? = null
     private val binding get() = _binding!!
-    private lateinit var recyclerView: RecyclerView
+    //private lateinit var recyclerView: RecyclerView
     private lateinit var viewModel: ViewModel
 
     override fun onCreateView(

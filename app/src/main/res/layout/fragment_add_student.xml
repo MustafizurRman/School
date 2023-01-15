@@ -60,11 +60,6 @@
             android:layout_height="wrap_content"
             android:hint="Enter school name" />
 
-        <EditText
-            android:id="@+id/subject_name_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter subject name" />
 
         <Button
             android:id="@+id/save_button"

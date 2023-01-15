@@ -39,21 +39,20 @@ class AddStudentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[ViewModel::class.java]
 
-        binding.userImageView.setOnClickListener{
-            val intent= Intent(Intent.ACTION_PICK)
-            intent.type="./image*"
-            intent.data= MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            startActivityForResult(intent,1)
+        binding.userImageView.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "./image*"
+            intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            startActivityForResult(intent, 1)
         }
         binding.saveButton.setOnClickListener {
             val id = binding.studentIdEditText.text.toString()
             val name = binding.nameEditText.text.toString()
             val semester = binding.semesterEditText.text.toString()
             val schoolName = binding.schoolNameEditText.text.toString()
-            val subjectTaken = binding.subjectNameEditText.text.toString()
             if (!TextUtils.isEmpty(id) && !TextUtils.isEmpty(name) && !TextUtils.isEmpty(semester) && !TextUtils.isEmpty(
                     schoolName
-                ) && !TextUtils.isEmpty(subjectTaken)
+                )
             ) {
                 viewModel.addStudent(
                     Student(
@@ -61,7 +60,6 @@ class AddStudentFragment : Fragment() {
                         name,
                         Integer.parseInt(semester),
                         schoolName,
-                        subjectTaken,
                         imagePath
                     )
                 )
@@ -72,13 +70,14 @@ class AddStudentFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode==1 && resultCode==RESULT_OK){
+        if (requestCode == 1 && resultCode == RESULT_OK) {
             val imageUri: Uri? = data?.data
             binding.userImageView.setImageURI(imageUri)
 //            imagePath = getRealPathFromURI(imageUri!!, requireActivity() )
             imagePath = imageUri.toString()
         }
     }
+
     private fun getRealPathFromURI(contentUri: Uri, activityContext: Activity): String {
         val proj = arrayOf(MediaStore.Images.Media.DATA)
         val cursor = activityContext.managedQuery(contentUri, proj, null, null, null)

@@ -5,14 +5,16 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.fizz.school.models.entities.Student
+import com.fizz.school.models.entities.StudentSubjectCrossRef
 import com.fizz.school.models.entities.Subject
 
 @Database(
     entities = [
         Student::class,
         Subject::class,
+        StudentSubjectCrossRef::class
     ],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 abstract class SchoolDatabase : RoomDatabase() {

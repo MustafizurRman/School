@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_studentInfoFragment_to_studentDetailsFragment"
             app:destination="@id/studentDetailsFragment" />
+        <action
+            android:id="@+id/action_studentInfoFragment_to_subjectListFragment"
+            app:destination="@id/subjectListFragment" />
     </fragment>
     <fragment
         android:id="@+id/addStudentFragment"
@@ -61,6 +64,9 @@
         <action
             android:id="@+id/action_subjectListFragment_to_subjectDetailsFragment2"
             app:destination="@id/subjectDetailsFragment" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_studentInfoFragment"
+            app:destination="@id/studentInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/addSubjectFragment"

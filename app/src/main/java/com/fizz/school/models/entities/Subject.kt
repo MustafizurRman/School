@@ -7,5 +7,7 @@ import androidx.room.PrimaryKey
 data class Subject(
     @PrimaryKey(autoGenerate = false)
     val subjectCode:Int,
-    val subjectName:String
+    val subjectName:String,
+    val subjectDetail:String,
+    val subjectInstructor:String
 )

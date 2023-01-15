@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.fizz.school.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +23,14 @@ class MainActivity : AppCompatActivity() {
 
         navController = navHostFragment.navController
         setupActionBarWithNavController(navController)
+
+        binding.bottomNavbar.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.subjectNav->navController.navigate(R.id.action_studentInfoFragment_to_subjectListFragment)
+                else->navController.navigate(R.id.action_subjectListFragment_to_studentInfoFragment)
+            }
+            true
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

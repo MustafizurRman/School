@@ -10,6 +10,6 @@ data class Student(
     val studentName:String,
     val semester:Int,
     val schoolName:String,
-    val subjectName:String,
+//    val subjectName:String,
     val studentImage:String
 )
