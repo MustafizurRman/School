@@ -4,4 +4,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="update">Update</string>
     <string name="delete">Delete</string>
+    <string name="title_placeholder">Title Placeholder</string>
+    <string name="subject_instructor">Subject Instructor</string>
+    <string name="subject_detail">Subject Detail</string>
+    <string name="student">Student</string>
+    <string name="courses">Courses</string>
 </resources>

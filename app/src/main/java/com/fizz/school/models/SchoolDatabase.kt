@@ -4,35 +4,37 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.fizz.school.models.entities.Director
-import com.fizz.school.models.entities.School
 import com.fizz.school.models.entities.Student
+import com.fizz.school.models.entities.StudentSubjectCrossRef
 import com.fizz.school.models.entities.Subject
 
 @Database(
     entities = [
-        School::class,
         Student::class,
         Subject::class,
-        Director::class
+        StudentSubjectCrossRef::class
     ],
-    version = 1
+    version = 3,
+    exportSchema = false
 )
 abstract class SchoolDatabase : RoomDatabase() {
 
-    abstract val schoolDao: SchoolDao
+    abstract fun studentDao(): StudentDao
 
     companion object {
         @Volatile
         private var INSTANCE: SchoolDatabase? = null
 
-        fun getInstance(context: Context): SchoolDatabase {
+        fun getDatabase(context: Context): SchoolDatabase {
+            val tempInstance = INSTANCE
+            if (tempInstance != null) return tempInstance
             synchronized(this) {
                 return INSTANCE ?: Room.databaseBuilder(
                     context.applicationContext,
                     SchoolDatabase::class.java,
                     "school_db"
-                ).build().also { INSTANCE = it }
+                ).fallbackToDestructiveMigration()
+                    .build().also { INSTANCE = it }
             }
         }
     }
